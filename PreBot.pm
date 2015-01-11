@@ -3,6 +3,7 @@
 # Author: m4luc0
 # Version: 1.0
 ##
+
 package pre;
 use base 'ZNC::Module';
 
@@ -33,7 +34,7 @@ sub module_types { $ZNC::CModInfo::UserModule }
 
 # Module description
 sub description {
-    "PreBot perl module for ZNC"
+    "PreBot Perl module for ZNC"
 }
 
 # On channel message
