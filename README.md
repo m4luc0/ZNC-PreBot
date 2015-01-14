@@ -19,13 +19,10 @@ INFO RELEASE FILES SIZE
 
 Examples:
 PRE XXX This.is.a.super.hot.release-H0tSHiT
-PRE - XXX - This.is.a.super.hot.release-H0tSHiT
 PRE: [XXX] This.is.a.super.hot.release-H0tSHiT
-[PRE] [XXX] [This.is.a.super.hot.release-H0tSHiT]
 [PRE] - [XXX] - [This.is.a.super.hot.release-H0tSHiT]
 
 NUKE This.is.a.super.hot.release-H0tSHiT nuke.wars.reason
-NUKE - This.is.a.super.hot.release-H0tSHiT - nuke.wars.reason
 NUKE: This.is.a.super.hot.release-H0tSHiT [nuke.wars.reason]
 [NUKE] [This.is.a.super.hot.release-H0tSHiT] [nuke.wars.reason]
 
@@ -41,24 +38,7 @@ so even perl beginners should be able to use and modify it for custom purposes.
 * ZNC installed and running. Don't know how to install it? Take a look at the [official guide](http://wiki.znc.in/Installation).
 * MySQL server running. In case you're using another DB type you'll have to rewrite some code lines.
 * Knowledge about starting Perl modules in ZNC. Don't know how to do that? Take a look at the ZNC [Modperl wiki page](http://wiki.znc.in/Modperl).
-* Last but not least: a hungry PreDB. I prepared some configuration variables. It will allow you to use your own db structure and column names. Your PreDB structure **could** look like this:
-
-```sql
-CREATE TABLE IF NOT EXISTS `releases` (
-  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `pretime` int(11) NOT NULL,
-  `release` varchar(200) NOT NULL,
-  `section` varchar(20) NOT NULL,
-  `files` int(5) NOT NULL DEFAULT '0',
-  `size` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `status` int(1) NOT NULL DEFAULT '0',
-  `reason` varchar(255) NOT NULL DEFAULT '',
-  `group` varchar(30) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `release` (`release`),
-  KEY `grp` (`group`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-```
+* Last but not least: a hungry PreDB. I prepared some configuration variables. It will allow you to use your own db structure and column names. Take a look at the [db_schema](https://github.com/m4luc0/ZNC-PreBot/blob/master/db_schema.sql) if you're not sure how your PreDB could look like.
 
 ## Installation
 Make sure that you've configured ZNC with the **--enable-perl** flag. Don't know what I'm talking about? Take a look at the ZNC [Modperl wiki page](http://wiki.znc.in/Modperl). Furthermore I assume that your MySQL server is running with a prepared db, so you just need to install some Perl modules. The best way to install Perl modules is via [cpanm](https://metacpan.org/pod/App::cpanminus). To install the required packages just type the following commands into your shell:
